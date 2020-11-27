@@ -4,20 +4,24 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PefilesUsuarioComponent } from './Components/pefiles-usuario/pefiles-usuario.component';
-import { RegistrosUsuarioComponent } from './Components/registros-usuario/registros-usuario.component';
-import { PanelAdministradorComponent } from './Components/panel-administrador/panel-administrador.component';
+import { PerfilesUsuarioComponent } from './Components/perfiles-usuario/perfiles-usuario.component';
+import { RegistrosUsuarioComponent } from './Components/perfiles-usuario/registros-usuario/registros-usuario.component';
+import { ListaUsuariosComponent } from './Components/perfiles-usuario/lista-usuarios/lista-usuarios.component';
+import { DetallesUsuariosComponent } from './Components/perfiles-usuario/detalles-usuarios/detalles-usuarios.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
+import { PanelAdministradorComponent } from './Components/panel-administrador/panel-administrador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PefilesUsuarioComponent,
     RegistrosUsuarioComponent,
     PanelAdministradorComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PerfilesUsuarioComponent,
+    ListaUsuariosComponent,
+    DetallesUsuariosComponent
   ],
   imports: [
     BrowserModule,
