@@ -1,31 +1,5 @@
-.banner{
-  max-height: 200px;
+.Banner{
+  height: 200px;
   width: auto;
   overflow: hidden;
-}
-
-#sticky{
-position: sticky;
-top: 0;
-}
-
-#title {
-color: white;
-margin-top: 5px;
-font-size: 25px;
-}
-
-.navbar {
-  width: 100%;
-  overflow: auto;
-  background-color:  #000000;
-}
-
-.nav-item a{
-margin-left: 30px;
-color: white;
-}
-
-.navbar-nav :hover{
-color: orange;
 }

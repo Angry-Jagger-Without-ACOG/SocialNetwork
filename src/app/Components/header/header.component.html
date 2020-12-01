@@ -1,33 +1,20 @@
 <!--Banner-->
 <div class="header">
-  <div class='banner'>
-    <img src="">
+  <div class="Banner">
+    <img src="assets\Imagenes\banner.jpg">
   </div>
 </div>
 
 <!--Barrra de Navegacion-->
 <!--El id Sticky se encarga de que la barra de menu se quede fijada a la parte superior de nuestra pantalla-->
-<nav class="navbar navbar-dark" id="sticky">
 
-  <p id="title">Eventos y Planificacion</p>
-
- <!--Menu desplegable con la lista de las paginas-->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#colpNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="colpNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/inicio']" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/evento']" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">Eventos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/quien']" routerLinkActive="active" data-toggle="collapse" data-target=".navbar-collapse.show">Quien Somos</a>
-      </li>
-    </ul>
-  </div>
-
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" style="margin-bottom: 20px;">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/Perf']" routerLinkActive="active">Perfiles</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/Admin']" routerLinkActive="active">Administrador</a>
+    </li>
+  </ul>
 </nav>
