@@ -1,1 +1,42 @@
-<p>perfiles-usuario works!</p>
+<div class="container">
+
+  <div  class="row row-cols-2 mt-5">
+
+    <!--Columna con bucle encargado para mostrar el Perfil, y con la funcion
+      "Get" encargada de recoger y pasar el perfil selecionado-->
+    <div class="col">
+
+      <div *ngIf="Perfiles.length !=0" class="list-group rounded pre-scrollable" style="height: 25rem;">
+        <a *ngFor="let Perfil of Perfiles;index as i" class="list-group-item list-group-item-action text-center p-4 bg-light"
+          (click)="Get(Perfil)">{{Perfil.Nombre}} {{Perfil.Apellido}}</a>
+      </div>
+
+      <div *ngIf="Perfiles.length !=0" class="card align-items-center rounded bg-dark text-white p-3" style="width: 20rem;margin-top: 5rem;">
+        <p class="pt-2">Registra nuevos perfiles!</p>
+        <button class="btn btn-light rounded mt-4" style="width: 50%;" type="button">Registrar</button>
+      </div>
+
+      <div *ngIf="Perfiles.length ===0" class="card align-items-center rounded bg-dark text-white p-3" style="width: 20rem;">
+        <p class="pt-2">Registra nuevos perfiles!</p>
+        <button class="btn btn-light rounded mt-4" style="width: 50%;" type="button">Registrar</button>
+      </div>
+
+    </div>
+
+    <!--Columna con *ngIf para mostrar la tarjeta con el Perfil selecionado cuando se seleciona un perifl
+    y Perfil_Selec deja de ser null, de manera que mostrara la ratjeta de ese pefil hasta que se selecione
+      otro, o con el boton de atras de la tarjeta del Perfil se le devuelva un valor-->
+    <div class="col">
+      <div *ngIf="Perfil_Selec != null">
+        <app-detalles-usuarios [PerfilSelecionado]="Perfil_Selec" (Retornar)="Get($event)"></app-detalles-usuarios>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Encargado de avisar de que no hay Perfiles disponibles -->
+  <div *ngIf="Perfiles.length ===0" style="margin-top: 8rem;">
+    <h2 class="text-center">No hay perfiles disponibles</h2>
+  </div>
+
+</div>

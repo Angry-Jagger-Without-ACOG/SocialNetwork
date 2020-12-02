@@ -6,7 +6,7 @@ export class Perfil {
     public Correo : string,
     public Contraseña : string,
     public Foto: string,
-    public Edad: string,
+    public Edad: number,
     public Descripcion : string
   ) { }
 
