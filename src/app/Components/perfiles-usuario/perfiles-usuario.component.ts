@@ -8,10 +8,9 @@ import { Perfil } from 'src/app/Models/Perfil.model';
 })
 export class PerfilesUsuarioComponent implements OnInit {
 
-
   Perfiles: Perfil[] = [];
   Perfil_Selec: Perfil = null;
-  Posicion: number = 0;
+  Opcion: boolean = false;
 
   Llenar_Equipo() {
     this.Perfiles.push(new Perfil('Marc', 'Valdivia', 'brazosrotos@gmail.com', 'roto', 'assets/Imagenes/valdivia.png', 20, 'Un tio con los brazos rotos'));
@@ -36,7 +35,18 @@ export class PerfilesUsuarioComponent implements OnInit {
     return this.Perfiles;
   }
 
+  //Funcion para añadir registros al array
+  Rellenar(Nuevo: Perfil): void {
+    this.Perfiles.push(Nuevo);
+  }
 
+ // Funcion que cambia el valor de Opcion para mostra la pagina con la lsita de perfiles o
+ // el formulario de crear-los
+  Set_Op(op: boolean): void {
+    this.Opcion = op;
+  }
+
+  //Funcion para selecionar un perfil
   Get(Perf: Perfil) {
     this.Perfil_Selec = Perf;
   }

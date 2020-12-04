@@ -1,24 +1,31 @@
 <div class="container">
 
-  <div  class="row row-cols-2 mt-5">
+<!--En este div se mostrara la lista de perfiles, sus detalles , y el boton para registrar nuevos usuarios.
+    Con la variable Opcion decido que se mostrara , si la pagina con la lista o el registro de Perfiles -->
+  <div class="row row-cols-2 mt-5" *ngIf="Opcion == false">
 
     <!--Columna con bucle encargado para mostrar el Perfil, y con la funcion
       "Get" encargada de recoger y pasar el perfil selecionado-->
     <div class="col">
 
       <div *ngIf="Perfiles.length !=0" class="list-group rounded pre-scrollable" style="height: 25rem;">
-        <a *ngFor="let Perfil of Perfiles;index as i" class="list-group-item list-group-item-action text-center p-4 bg-light"
+        <a *ngFor="let Perfil of Perfiles" class="list-group-item list-group-item-action text-center p-4 bg-light"
           (click)="Get(Perfil)">{{Perfil.Nombre}} {{Perfil.Apellido}}</a>
       </div>
 
-      <div *ngIf="Perfiles.length !=0" class="card align-items-center rounded bg-dark text-white p-3" style="width: 20rem;margin-top: 3rem;">
+      <!-- Hay dos botones para registrar, uno para el caso de que haya registros en el array de Perfiles y
+      en caso de que no haya registros en Perfiles, ya que sino se queda descolocado el boton de registrar
+      nuevos perfiles -->
+      <div *ngIf="Perfiles.length !=0" class="card align-items-center rounded bg-dark text-white p-3"
+        style="width: 20rem;margin-top: 3rem;">
         <p class="pt-2">Registra nuevos perfiles!</p>
-        <button class="btn btn-light rounded mt-4" style="width: 50%;" type="button">Registrar</button>
+        <button type="button" class="btn btn-light rounded mt-4" style="width: 50%;" (click)="Set_Op(true)">Registrar</button>
       </div>
 
-      <div *ngIf="Perfiles.length ===0" class="card align-items-center rounded bg-dark text-white p-3" style="width: 20rem;">
+      <div *ngIf="Perfiles.length === 0" class="card align-items-center rounded bg-dark text-white p-3"
+        style="width: 20rem;">
         <p class="pt-2">Registra nuevos perfiles!</p>
-        <button class="btn btn-light rounded mt-4" style="width: 50%;" type="button">Registrar</button>
+        <button type="button" class="btn btn-light rounded mt-4" style="width: 50%;" (click)="Set_Op(true)">Registrar</button>
       </div>
 
     </div>
@@ -34,9 +41,16 @@
 
   </div>
 
-  <!-- Encargado de avisar de que no hay Perfiles disponibles -->
-  <div *ngIf="Perfiles.length ===0" style="margin-top: 8rem;">
+  <!-- Encargado de avisar de que no hay Perfiles disponibles, esta fuera del div anterior con dos columnas
+  devido a que sino no habira quedado centrado en la pantalla -->
+  <div *ngIf="Perfiles.length === 0" style="margin-top: 8rem;">
     <h2 class="text-center">No hay perfiles disponibles</h2>
   </div>
+
+<!--Ventana para crear perfiles-->
+  <div *ngIf="Opcion == true">
+    <app-registros-usuario (volver)="Set_Op($event)" (nuevo)="Rellenar($event)"></app-registros-usuario>
+  </div>
+
 
 </div>

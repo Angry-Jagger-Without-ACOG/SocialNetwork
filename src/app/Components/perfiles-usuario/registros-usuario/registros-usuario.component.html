@@ -1,1 +1,94 @@
-<p>registros-usuario works!</p>
+ <form [formGroup]="Nuevo_Perfil" class="pt-3 pl-4 pr-4 rounded" style="background-color: #4a4a50;">
+
+    <h3 class="text-white text-center">Crea un Perfil</h3>
+
+    <div class="form-group">
+      <p class="text-white" for="">Nombre</p>
+      <input type="text" placeholder="Nombre" formControlName="Nombre" class="form-control"
+      [ngClass]= "{'is-invalid': submitted && data.Nombre.errors}">
+
+      <div *ngIf= "submitted && data.Nombre.errors" class="invalid-feedback">
+        <div *ngIf= "data.Nombre.errors.required"> El campo de Nombre esta Vacio</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="text-white" for="">Apellido</label>
+      <input type="text" placeholder="Apellido" formControlName="Apellido" class="form-control"
+      [ngClass]= "{'is-invalid': submitted && data.Apellido.errors}">
+
+      <div *ngIf= "submitted && data.Apellido.errors" class="invalid-feedback">
+        <div *ngIf= "data.Apellido.errors.required"> El campo de Apellido esta Vacio</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="text-white" for="">Correo</label>
+      <input type="text" placeholder="Correo" formControlName="Correo" class="form-control"
+      [ngClass]= "{'is-invalid': submitted && data.Correo.errors}">
+
+      <div *ngIf= "submitted && data.Correo.errors" class="invalid-feedback">
+        <div *ngIf= "data.Correo.errors.required"> El campo de Correo esta Vacio</div>
+        <div *ngIf= "data.Correo.errors.email"> Ese correo es invalido, deberia ser:  ejemplo@ejemplo.com</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="text-white" for="">Contraseña</label>
+      <input type="text" placeholder="Contraseña" formControlName="Contras" class="form-control"
+      [ngClass]= "{'is-invalid': submitted && data.Contras.errors}">
+
+      <div *ngIf= "submitted && data.Contras.errors" class="invalid-feedback">
+        <div *ngIf= "data.Contras.errors.required"> El campo de Contraseña esta Vacio</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="text-white" for="">Repetir Contraseña</label>
+      <input type="text" placeholder="Repite la Contraseña" formControlName="RepContra" class="form-control"
+      [ngClass]= "{'is-invalid': submitted && data.RepContra.errors}">
+
+      <div *ngIf= "submitted && data.RepContra.errors" class="invalid-feedback">
+        <div *ngIf= "data.RepContra.errors.required"> El campo de Repetir Contraseña esta Vacio</div>
+        <div *ngIf= "data.RepContra.errors.Comprobacion"> La contraseña no coincide</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="text-white" for="">Foto</label>
+      <input type="file" style="background-color: white;" placeholder="Ningun archivo selecionado"
+      formControlName="Foto" class="form-control-file border rounded" [ngClass]= "{'is-invalid': submitted && data.Foto.errors}">
+
+      <div *ngIf= "submitted && data.Foto.errors" class="invalid-feedback">
+        <div *ngIf= "data.Foto.errors.required"> El campo de Foto esta Vacio</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="text-white" for="">Edad</label>
+      <input type="text" placeholder="0" formControlName="Edad" class="form-control"
+      [ngClass]= "{'is-invalid': submitted && data.Edad.errors}">
+
+      <div *ngIf= "submitted && data.Edad.errors" class="invalid-feedback">
+        <div *ngIf= "data.Edad.errors.required"> El campo de Edad esta Vacio</div>
+        <div *ngIf= "data.Edad.errors.pattern"> Tienes que entrar un numero</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="text-white" for="">Descripcion</label>
+      <input type="text" placeholder="Una pequeña descripcion del perfil" formControlName="Descripcion"
+        class="form-control" [ngClass]= "{'is-invalid': submitted && data.Descripcion.errors}">
+
+      <div *ngIf= "submitted && data.Descripcion.errors" class="invalid-feedback">
+        <div *ngIf= "data.Descripcion.errors.required"> El campo de Descripcion esta Vacio</div>
+        <div *ngIf= "data.Descripcion.errors.minlength"> La descripcion debe tener un minimo de 4 caracteres!!</div>
+      </div>
+    </div>
+
+    <div class="form-group pt-3 pb-3">
+      <button type="button" class="btn btn-light rounded float-right" (click)="Creacion()">Crear</button>
+      <button type="button" class="btn btn-light rounded" (click)="Volver()">Volver</button>
+    </div>
+
+  </form>
