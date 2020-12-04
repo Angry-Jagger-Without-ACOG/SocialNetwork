@@ -1,1 +1,23 @@
-<p>panel-administrador works!</p>
+<div class="container">
+
+    <div class="row row-cols-10 mt-5">
+
+        <div class="col">
+
+            <div *ngIf="Usuarios.length !=0" class="list-group rounded pre-scrollable mt-5">
+                <a *ngFor="let Usuarios of Usuarios;index as i"
+                    class="list-group-item list-group-item-action text-center p-4 bg-light"
+                    (click)="(Usuarios)">{{Usuarios.Nombre}} {{Usuarios.Apellido}} <button type="button"
+                        class="float-right btn btn-dark" (click)="BorrarUsuario(i)"> Borrar </button>
+
+                    <div class="d-none"> {{i+1}} </div>
+                </a>
+
+            </div>
+
+            <!-- Encargado de avisar de que no hay Perfiles disponibles -->
+            <div *ngIf="Usuarios.length ===0" style="margin-top: 8rem;">
+                <h2 class="text-center">No hay perfiles disponibles</h2>
+            </div>
+
+        </div>
