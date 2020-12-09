@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Perfil } from 'src/app/Models/Perfil.model';
 import {Comprobacion} from './Comprobador'
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-registros-usuario',
   templateUrl: './registros-usuario.component.html',
