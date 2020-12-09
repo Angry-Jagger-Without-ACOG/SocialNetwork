@@ -1,5 +1,4 @@
-.Banner{
-  height: 200px;
-  width: auto;
-  overflow: hidden;
+#Banner{
+  height: auto;
+  width: 100%;
 }
