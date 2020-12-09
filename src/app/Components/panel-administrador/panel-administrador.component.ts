@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuarios } from 'src/app/Models/Usuarios.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-panel-administrador',
@@ -36,9 +37,34 @@ export class PanelAdministradorComponent implements OnInit {
   }
 
   BorrarUsuario(i: number){
-    this.Usuarios.splice(i,1);
+    
+
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: "No podras volver atras!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#4a4a50',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, borrala!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.Usuarios.splice(i,1);
+        Swal.fire(
+          'Borrada!',
+          'El usuario ha sido borrado.',
+          'success'
+        )
+      }
+    })
+
 
   }
+
+
+
+  
+  
 
 
 }
